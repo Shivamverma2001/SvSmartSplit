@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,6 +80,13 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity", "77 Setting up logout button...");
         setupLogoutButton();
         Log.d("MainActivity", "79 Setting up logout button...");
+
+        ImageButton editButton = navigationView.getHeaderView(0).findViewById(R.id.edit_button);
+        editButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, EditProfile.class);
+            startActivity(intent);
+        });
+
     }
 
     @Override

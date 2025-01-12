@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".EditProfile"
+    android:padding="16dp">
+
+<!-- Profile Image -->
+<ImageView
+    android:id="@+id/edit_profile_image"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_gravity="center"
+    android:src="@mipmap/ic_launcher_round"
+    android:contentDescription="@string/profile_image"/>
+
+<!-- Name -->
+<EditText
+    android:id="@+id/edit_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/name"
+    android:text="@string/nav_header_title"/>
+
+<!-- Email -->
+<EditText
+    android:id="@+id/edit_email"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/email"
+    android:text="@string/nav_header_subtitle"/>
+
+<!-- Contact -->
+<EditText
+    android:id="@+id/edit_contact"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/contact_number"
+    android:text="@string/nav_header_subtitle"/>
+
+<!-- Save Button -->
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
+<Button
+    android:id="@+id/save_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/save" />
+
+<!-- Delete Account Button -->
+<Button
+    android:id="@+id/delete_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/delete_account"
+    android:textColor="@android:color/holo_red_light"/>
+</LinearLayout>
