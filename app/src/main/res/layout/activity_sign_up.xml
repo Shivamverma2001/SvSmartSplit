@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".SignUp">
+
+    <!-- Name Input -->
+    <EditText
+        android:id="@+id/signupNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:hint="@string/name"
+        android:inputType="textPersonName" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/signupEmailInput"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <!-- Contact Number Input -->
+    <EditText
+        android:id="@+id/signupContactInput"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_number"
+        android:inputType="phone" />
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/signupPasswordInput"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <!-- Confirm Password Input -->
+    <EditText
+        android:id="@+id/signupConfirmPasswordInput"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword" />
+
+    <!-- Upload Image Button (with a default image) -->
+    <ImageView
+        android:id="@+id/signupImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/smartsplit"
+        android:layout_gravity="center"
+        android:contentDescription="@string/user_profile_image" />
+
+    <Button
+        android:id="@+id/signupImageButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/upload_image" />
+
+    <!-- Signup Button -->
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/sign_up" />
+
+    <!-- Google Signup Button -->
+    <Button
+        android:id="@+id/signupGoogleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/sign_up_with_google" />
+
+    <!-- Redirect to Signin -->
+    <TextView
+        android:id="@+id/loginRedirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/already_have_an_account_login_here"
+        android:textColor="@color/purple_700"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:paddingTop="8dp" />
+
+</LinearLayout>
