@@ -1,16 +1,20 @@
 package com.sv.svsplitsmart;
 
+import static android.content.ContentValues.TAG;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,6 +25,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import com.sv.svsplitsmart.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,12 +74,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Fetch and display user info
         displayUserInfo();
+
+        // Set up logout button
+        Log.d("MainActivity", "77 Setting up logout button...");
+        setupLogoutButton();
+        Log.d("MainActivity", "79 Setting up logout button...");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: Setting up logout button...");
+        setupLogoutButton(); // Ensure the logout button setup happens every time the activity resumes
     }
 
     @Override
@@ -135,4 +152,38 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void setupLogoutButton() {
+        // Find the logout button directly in the main layout
+        Log.d("MainActivity", "146 Setting up logout button...");
+        Button logoutButton = findViewById(R.id.logout_button); // Ensure correct ID
+
+        Log.d("MainActivity", "150 before Setting up logout button...");
+
+        if (logoutButton != null) {
+            logoutButton.setOnClickListener(view -> {
+                Log.d("MainActivity", "Logout button clicked");
+
+                // Perform logout
+                performLogout();
+            });
+        } else {
+            Log.e("MainActivity", "Logout button is null.");
+        }
+    }
+
+    private void performLogout() {
+        Log.d("MainActivity", "Performing logout...");
+
+        // Firebase logout
+        mAuth.signOut();
+
+        // Show confirmation or redirect to login
+        Toast.makeText(this, "Logged out successfully!", Toast.LENGTH_SHORT).show();
+
+        // Redirect to LoginActivity
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish(); // Close MainActivity
+    }
 }
